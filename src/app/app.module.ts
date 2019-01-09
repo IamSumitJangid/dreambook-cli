@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { StudentsComponent } from './students/students.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatToolbarModule, MatCardModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatCardModule, MatListModule, MatTableModule } from '@angular/material';
+import { StudentFormComponent } from './student-form/student-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsComponent,
-    DashboardComponent
+    DashboardComponent,
+    StudentFormComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { MatButtonModule, MatToolbarModule, MatCardModule, MatListModule } from 
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

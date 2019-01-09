@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Config, ConfigService } from './service';
+import { ListStudents, StudentService } from './service';
 
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
-  providers: [ConfigService],
+  providers: [StudentService],
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-  // config: Config;
-  listStuddents: any;
-  constructor(private configService: ConfigService) { }
+  listStudents: ListStudents;
+
+  constructor(private studentService: StudentService) { }
 
   ngOnInit() {
     this.showConfig();
@@ -18,9 +18,9 @@ export class StudentsComponent implements OnInit {
 
 
   showConfig() {
-    this.configService.getConfig()
-      .subscribe((data: []) => {
-        this.listStuddents = data;
+    this.studentService.getConfig()
+      .subscribe((data: ListStudents) => {
+        this.listStudents = data;
       });
   }
 }

@@ -2,15 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 // interface like model
-export interface Config {
-    heroesUrl: string;
-    textfile: string;
+export interface ListStudents {
+    list: Array<any>
 }
 
 @Injectable()
-export class ConfigService {
-    configUrl = 'assets/test.json';
-
+export class StudentService {
     apiUrl = 'http://localhost:8080/api/students';
 
     constructor(private http: HttpClient) { }
