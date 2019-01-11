@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatToolbarModule, MatCardModule, MatListModule } from '@angular/material';
+// import { FlexLayoutModule } from '@angular/flex-layout';
 import { StudentsComponent } from './students/students.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatToolbarModule, MatCardModule, MatListModule, MatTableModule } from '@angular/material';
 import { StudentFormComponent } from './student-form/student-form.component';
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { StudentFormComponent } from './student-form/student-form.component';
     MatToolbarModule,
     MatCardModule,
     MatListModule,
-    MatTableModule
+    // FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
