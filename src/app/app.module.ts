@@ -14,6 +14,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentsComponent } from './students/students.component';
 import { StudentComponent } from './student/student.component';
+import { StudentService } from './services/student.service';
+
 import { from } from 'rxjs';
 
 @NgModule({
@@ -33,7 +35,9 @@ import { from } from 'rxjs';
     MatToolbarModule,
     MatListModule
   ],
-  providers: [],
+  providers: [
+    StudentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

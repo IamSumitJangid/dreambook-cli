@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../shared/student';
+import { StudentService } from '../services/student.service';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -7,16 +8,11 @@ import { Student } from '../shared/student';
 })
 export class StudentsComponent implements OnInit {
 
-  studentName: string;
-  students: Student[] = [
-    { id: 1, name: 'b', mobile_number: "+91-XXXXXXXXXX" },
-    { id: 2, name: 'a', mobile_number: "+91-XXXXXXXXXX" },
-    { id: 3, name: 'c', mobile_number: "+91-XXXXXXXXXX" },
-    { id: 4, name: 'd', mobile_number: "+91-XXXXXXXXXX" }
-  ]
-  constructor() { }
+  students: Student[];
+  constructor(private studentService: StudentService) { }
 
   ngOnInit() {
+    this.students = this.studentService.getStudents();
   }
 
 }
