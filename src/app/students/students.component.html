@@ -1,15 +1,19 @@
 <div class="container" fxLayout="column" fxLayoutGap="10px">
 
-  <div fxFlex>
-    <div>
+  <div>
+    <div fxFlex=50 class="heading">
       <h3>Students</h3>
-      <hr>
     </div>
+    <div fxFlex="50" class="filter">
+      <label for="filter">Filter : </label>
+      <input type="text" name="filter">
+    </div>
+    <hr>
   </div>
 
   <div fxFlex>
     <mat-grid-list cols="6" rowHeight="1:1" gutterSize='30px'>
-      <mat-grid-tile class="mat-elevation-z2" gutterSize='10px' *ngFor="let student of students">
+      <mat-grid-tile class="mat-elevation-z3" [routerLink]="['/student', student.id]" gutterSize='10px' *ngFor="let student of students">
         <mat-grid-tile-footer>
           <h1>{{student.name | uppercase}}</h1>
         </mat-grid-tile-footer>

@@ -13,13 +13,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentsComponent } from './students/students.component';
+import { StudentComponent } from './student/student.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    StudentsComponent
+    StudentsComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,

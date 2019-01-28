@@ -1,0 +1,13 @@
+.filter{
+    align-content: right;
+    text-align: right;
+}
+.heading {
+    color: dimgrey;
+}
+.heading > h3 {
+    margin: 0%;
+}
+mat-grid-tile{
+    background-color: #ffffff;
+}
