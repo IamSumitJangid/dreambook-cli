@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StudentService } from '../services/student.service';
-import { Student } from '../shared/student';
+import { Student, Gender } from '../shared/student';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { FormBuilder, FormGroup, Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-student',
@@ -10,18 +11,29 @@ import { Location } from '@angular/common';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit, OnDestroy {
+  studentForm: FormGroup;
   student: Student;
+  genders = Gender;
+  date = new Date();
   // subscriber: any;
-  constructor(private studentService: StudentService,
+  constructor(
+    private fb: FormBuilder,
+    private studentService: StudentService,
     private route: ActivatedRoute,
-    private location: Location) { }
+    private location: Location) {
+    let id = +this.route.snapshot.params['id'];
+    this.student = this.studentService.getStudent(id);
+    this.createForm();
+  }
 
   ngOnInit() {
     // this.subscriber = this.route.params.subscribe(params => {
     //   this.id = +params['id']; // (+) converts string 'id' to a number
     // });
-    let id = +this.route.snapshot.params['id'];
-    this.student = this.studentService.getStudent(id);
+  }
+
+  createForm() {
+    this.studentForm = this.fb.group(this.student);
   }
 
   ngOnDestroy() {

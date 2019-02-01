@@ -1,6 +1,32 @@
-<p>
-  student works!
-</p>
-Name : {{student.name}} <br>
-Mobile : {{student.mobile_number}} <br>
-<button mat-button (click)="goBack()">BACK</button>
+<div fxFlex>
+  <mat-card>
+    <form novalidate [formGroup]="studentForm">
+      <p>
+        <mat-form-field class="full_width">
+          <input type="text" formControlName="name" placeholder="name" required matInput>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="full_width">
+          <input type="text" formControlName="mobileNumber" placeholder="mobile number" required matInput>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="full_width">
+          <mat-select placeholder="Gender" formControlName="gender">
+            <mat-option *ngFor="let gender of genders" [value]="gender">
+              {{ gender }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-slide-toggle formControlName="isActive">Active ?</mat-slide-toggle>
+      </p>
+    </form>
+    <mat-card-actions>
+      <button matButton (click)="goBack()">BACK</button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>

@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { Student } from '../shared/student';
 
 const STUDENTS: Student[] = [
-  { id: 1, name: 'a', mobile_number: "+91-XXXXXXXXXX" },
-  { id: 2, name: 'b', mobile_number: "+91-XXXXXXXXXX" },
-  { id: 3, name: 'c', mobile_number: "+91-XXXXXXXXXX" },
-  { id: 4, name: 'd', mobile_number: "+91-XXXXXXXXXX" },
-  { id: 5, name: 'e', mobile_number: "+91-XXXXXXXXXX" },
-  { id: 6, name: 'f', mobile_number: "+91-XXXXXXXXXX" },
-  { id: 7, name: 'g', mobile_number: "+91-XXXXXXXXXX" },
-  { id: 8, name: 'h', mobile_number: "+91-XXXXXXXXXX" }
+  { id: 1, gender: "Male", name: 'Prince', mobileNumber: "+91-XXXXXXXXXX", dateOfJoin: new Date(), isDeleted: false, isActive: true },
+  { id: 2, gender: 'Male', name: 'Manish', mobileNumber: "+91-XXXXXXXXXX", dateOfJoin: new Date(), isDeleted: false, isActive: true },
+  { id: 3, gender: 'Male', name: 'Anish', mobileNumber: "+91-XXXXXXXXXX", dateOfJoin: new Date(), isDeleted: false, isActive: true },
+  { id: 4, gender: 'Male', name: 'Sumit', mobileNumber: "+91-XXXXXXXXXX", dateOfJoin: new Date(), isDeleted: false, isActive: true },
+  { id: 5, gender: 'Male', name: 'Darshil', mobileNumber: "+91-XXXXXXXXXX", dateOfJoin: new Date(), isDeleted: false, isActive: true },
+  { id: 6, gender: 'Female', name: 'Nanu', mobileNumber: "+91-XXXXXXXXXX", dateOfJoin: new Date(), isDeleted: false, isActive: true },
+  { id: 7, gender: 'Male', name: 'Anjali', mobileNumber: "+91-XXXXXXXXXX", dateOfJoin: new Date(), isDeleted: false, isActive: true },
+  { id: 8, gender: 'Female', name: 'Payal', mobileNumber: "+91-XXXXXXXXXX", dateOfJoin: new Date(), isDeleted: false, isActive: true }
 ];
 
 
