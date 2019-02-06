@@ -1,23 +1,23 @@
-<div class="container" fxLayout="column" fxLayoutGap="10px">
-
+<div class="container" fxFlex fxLayout="column" fxLayoutGap="10px">
   <div>
     <div fxFlex=50 class="heading">
-      <h3>Students</h3>
+      <h3>Students <a mat-icon-button [routerLink]="['/student']">
+          <mat-icon class="fa fa-plus"></mat-icon>
+        </a> </h3>
     </div>
     <div fxFlex="50" class="filter">
       <label for="filter">Filter : </label>
       <input type="text" name="filter">
     </div>
   </div>
-
   <div fxFlex>
     <mat-grid-list cols="6" rowHeight="1:1" gutterSize='30px'>
-      <mat-grid-tile class="mat-elevation-z3" [routerLink]="['/student', student.id]" gutterSize='10px' *ngFor="let student of students">
+      <mat-grid-tile class="mat-elevation-z3" [routerLink]="['/student']" [queryParams]="{ id: student.id }" gutterSize='10px'
+        *ngFor="let student of students">
         <mat-grid-tile-footer>
           <h1>{{student.name | uppercase}}</h1>
         </mat-grid-tile-footer>
       </mat-grid-tile>
     </mat-grid-list>
   </div>
-
 </div>

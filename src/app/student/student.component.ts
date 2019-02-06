@@ -21,9 +21,19 @@ export class StudentComponent implements OnInit, OnDestroy {
     private studentService: StudentService,
     private route: ActivatedRoute,
     private location: Location) {
-    let id = +this.route.snapshot.params['id'];
-    this.student = this.studentService.getStudent(id);
-    this.createForm();
+    // let id = +this.route.snapshot.params['id'];
+    let id = +this.route.snapshot.queryParams['id'];
+    if (id) {
+      this.student = this.studentService.getStudent(id);
+      this.createForm(this.student);
+    } else {
+      this.createForm({ name: '', gender: '', mobileNumber: '', isActive: true, isDeleted: false, dateOfJoin: new Date() });
+    }
+
+  }
+
+  createForm(fields) {
+    this.studentForm = this.fb.group(fields);
   }
 
   ngOnInit() {
@@ -32,16 +42,16 @@ export class StudentComponent implements OnInit, OnDestroy {
     // });
   }
 
-  createForm() {
-    this.studentForm = this.fb.group(this.student);
-  }
-
   ngOnDestroy() {
     // this.subscriber.unsubscribe();
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  saveData(): void {
+    console.log(this.studentForm.value);
   }
 
 }

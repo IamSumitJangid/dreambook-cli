@@ -5,10 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatNativeDateModule, MatIconModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import 'hammerjs';
@@ -43,7 +45,11 @@ import { from } from 'rxjs';
     MatListModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     StudentService

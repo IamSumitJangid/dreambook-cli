@@ -1,16 +1,12 @@
-<div fxFlex>
-  <mat-card>
+<div fxFlex fxLayout="row" fxLayoutAlign="space-around center">
+  <mat-card fxFlex=60>
     <form novalidate [formGroup]="studentForm">
       <p>
         <mat-form-field class="full_width">
-          <input type="text" formControlName="name" placeholder="name" required matInput>
+          <input type="text" autofocus formControlName="name" placeholder="name" required matInput>
         </mat-form-field>
       </p>
-      <p>
-        <mat-form-field class="full_width">
-          <input type="text" formControlName="mobileNumber" placeholder="mobile number" required matInput>
-        </mat-form-field>
-      </p>
+
       <p>
         <mat-form-field class="full_width">
           <mat-select placeholder="Gender" formControlName="gender">
@@ -21,11 +17,25 @@
         </mat-form-field>
       </p>
       <p>
+        <mat-form-field class="full_width">
+          <input type="text" formControlName="mobileNumber" placeholder="mobile number" required matInput>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="full_width">
+          <input matInput [matDatepicker]="picker" formControlName="dateOfJoin" placeholder="Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </p>
+      <p>
         <mat-slide-toggle formControlName="isActive">Active ?</mat-slide-toggle>
       </p>
     </form>
     <mat-card-actions>
-      <button matButton (click)="goBack()">BACK</button>
+      <button mat-raised-button (click)="goBack()">Back</button>
+      <div fxFlex></div>
+      <button mat-raised-button (click)="saveData()">Save</button>
     </mat-card-actions>
 
   </mat-card>
