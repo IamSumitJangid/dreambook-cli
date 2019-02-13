@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { StudentService } from '../services/student.service';
 import { Student, Gender } from '../shared/student';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup, Validator } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-student',
@@ -21,20 +21,41 @@ export class StudentComponent implements OnInit, OnDestroy {
     private studentService: StudentService,
     private route: ActivatedRoute,
     private location: Location) {
+
+    this.createForm();
     // let id = +this.route.snapshot.params['id'];
     let id = +this.route.snapshot.queryParams['id'];
+
     if (id) {
       this.student = this.studentService.getStudent(id);
-      this.createForm(this.student);
-    } else {
-      this.createForm({ name: '', gender: '', mobileNumber: '', isActive: true, isDeleted: false, dateOfJoin: new Date() });
+      this.studentForm.setValue({
+        name: this.student.name,
+        gender: this.student.gender,
+        mobileNumber: this.student.mobileNumber,
+        dateOfJoin: this.student.dateOfJoin,
+        isActive: this.student.isActive,
+        isDeleted: this.student.isDeleted
+      });
     }
-
   }
 
-  createForm(fields) {
-    this.studentForm = this.fb.group(fields);
+  // decorator to view child dom element of form
+  @ViewChild('SForm') studentFormDirective;
+
+
+  createForm() {
+    this.studentForm = this.fb.group({
+      name: ['', Validators.required],
+      gender: ['', Validators.required],
+      mobileNumber: [null, Validators.required],
+      dateOfJoin: [new Date(), Validators.required],
+      isActive: true,
+      isDeleted: false
+    });
   }
+
+
+
 
   ngOnInit() {
     // this.subscriber = this.route.params.subscribe(params => {
@@ -52,6 +73,15 @@ export class StudentComponent implements OnInit, OnDestroy {
 
   saveData(): void {
     console.log(this.studentForm.value);
+    this.studentForm.reset({
+      name: '',
+      gender: '',
+      mobileNumber: null,
+      dateOfJoin: new Date(),
+      isActive: true,
+      isDeleted: false
+    });
+    this.studentFormDirective.resetForm();
   }
 
 }

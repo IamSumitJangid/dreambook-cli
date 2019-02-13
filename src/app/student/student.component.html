@@ -1,9 +1,11 @@
 <div fxFlex fxLayout="row" fxLayoutAlign="space-around center">
   <mat-card fxFlex=60>
-    <form novalidate [formGroup]="studentForm">
+    <form novalidate [formGroup]="studentForm" #SForm="ngForm">
       <p>
         <mat-form-field class="full_width">
           <input type="text" autofocus formControlName="name" placeholder="name" required matInput>
+          <mat-error *ngIf="studentForm.get('name').hasError('required') && studentForm.get('name').touched">Name is
+            required</mat-error>
         </mat-form-field>
       </p>
 
@@ -19,6 +21,9 @@
       <p>
         <mat-form-field class="full_width">
           <input type="text" formControlName="mobileNumber" placeholder="mobile number" required matInput>
+          <mat-error *ngIf="studentForm.get('mobileNumber').hasError('required') && studentForm.get('mobileNumber').touched">Mobile
+            number is
+            required</mat-error>
         </mat-form-field>
       </p>
       <p>
@@ -35,7 +40,7 @@
     <mat-card-actions>
       <button mat-raised-button (click)="goBack()">Back</button>
       <div fxFlex></div>
-      <button mat-raised-button (click)="saveData()">Save</button>
+      <button mat-raised-button (click)="saveData()" [disabled]="studentForm.invalid">Save</button>
     </mat-card-actions>
 
   </mat-card>
