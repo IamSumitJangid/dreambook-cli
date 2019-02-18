@@ -73,15 +73,15 @@ export class StudentComponent implements OnInit, OnDestroy {
 
   saveData(): void {
     console.log(this.studentForm.value);
-    this.studentForm.reset({
-      name: '',
-      gender: '',
-      mobileNumber: null,
-      dateOfJoin: new Date(),
-      isActive: true,
-      isDeleted: false
-    });
-    this.studentFormDirective.resetForm();
+    // this.studentForm.reset({
+    //   name: '',
+    //   gender: '',
+    //   mobileNumber: null,
+    //   dateOfJoin: new Date(),
+    //   isActive: true,
+    //   isDeleted: false
+    // });
+    // this.studentFormDirective.resetForm();
   }
 
 }

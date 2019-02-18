@@ -24,6 +24,7 @@ import { StudentComponent } from './student/student.component';
 import { StudentService } from './services/student.service';
 
 import { from } from 'rxjs';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { from } from 'rxjs';
     HeaderComponent,
     FooterComponent,
     StudentsComponent,
-    StudentComponent
+    StudentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

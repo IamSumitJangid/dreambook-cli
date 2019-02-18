@@ -1,5 +1,5 @@
 <div fxFlex fxLayout="row" fxLayoutAlign="space-around center">
-  <mat-card fxFlex=60>
+  <mat-card fxFlex=60 class="mat-elevation-z4">
     <form novalidate [formGroup]="studentForm" #SForm="ngForm">
       <p>
         <mat-form-field class="full_width">
@@ -21,7 +21,9 @@
       <p>
         <mat-form-field class="full_width">
           <input type="text" formControlName="mobileNumber" placeholder="mobile number" required matInput>
-          <mat-error *ngIf="studentForm.get('mobileNumber').hasError('required') && studentForm.get('mobileNumber').touched">Mobile
+          <mat-error
+            *ngIf="studentForm.get('mobileNumber').hasError('required') && studentForm.get('mobileNumber').touched">
+            Mobile
             number is
             required</mat-error>
         </mat-form-field>
