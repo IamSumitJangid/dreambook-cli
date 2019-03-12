@@ -15,28 +15,13 @@ export class StudentComponent implements OnInit, OnDestroy {
   student: Student;
   genders = Gender;
   date = new Date();
-  // subscriber: any;
+  loading: boolean;
   constructor(
     private fb: FormBuilder,
     private studentService: StudentService,
     private route: ActivatedRoute,
     private location: Location) {
-
     this.createForm();
-    // let id = +this.route.snapshot.params['id'];
-    let id = +this.route.snapshot.queryParams['id'];
-
-    if (id) {
-      this.student = this.studentService.getStudent(id);
-      this.studentForm.setValue({
-        name: this.student.name,
-        gender: this.student.gender,
-        mobileNumber: this.student.mobileNumber,
-        dateOfJoin: this.student.dateOfJoin,
-        isActive: this.student.isActive,
-        isDeleted: this.student.isDeleted
-      });
-    }
   }
 
   // decorator to view child dom element of form
@@ -55,16 +40,28 @@ export class StudentComponent implements OnInit, OnDestroy {
   }
 
 
-
-
   ngOnInit() {
-    // this.subscriber = this.route.params.subscribe(params => {
-    //   this.id = +params['id']; // (+) converts string 'id' to a number
-    // });
+    this.route.queryParams.subscribe(queryParams => {
+      if (queryParams.id) {
+        this.loading = true;
+        this.studentService.getStudent(queryParams.id).subscribe(student => {
+          this.student = student;
+          this.loading = false;
+          this.studentForm.setValue({
+            name: this.student.name,
+            gender: this.student.gender,
+            mobileNumber: this.student.mobileNumber,
+            dateOfJoin: this.student.dateOfJoin,
+            isActive: this.student.isActive,
+            isDeleted: this.student.isDeleted
+          });
+        });
+      }
+    });
   }
 
   ngOnDestroy() {
-    // this.subscriber.unsubscribe();
+    //  some unsubscribe code 
   }
 
   goBack(): void {

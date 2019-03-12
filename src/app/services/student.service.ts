@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Student } from '../shared/student';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 const STUDENTS: Student[] = [
   { id: 1, gender: "Male", name: 'Prince', mobileNumber: "+91-XXXXXXXXXX", dateOfJoin: new Date(), isDeleted: false, isActive: true },
@@ -24,8 +26,8 @@ export class StudentService {
     return STUDENTS;
   }
 
-  getStudent(id: number): Student {
-    return STUDENTS.filter((student) => (student.id === id))[0];
+  getStudent(id: number): Observable<Student> {
+    return of(STUDENTS.filter((student) => (student.id == id))[0]).pipe(delay(2000));
   }
 
 }

@@ -13,6 +13,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import 'hammerjs';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +26,7 @@ import { StudentService } from './services/student.service';
 
 import { from } from 'rxjs';
 import { HomeComponent } from './home/home.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { HomeComponent } from './home/home.component';
     FooterComponent,
     StudentsComponent,
     StudentComponent,
-    HomeComponent
+    HomeComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { HomeComponent } from './home/home.component';
     MatCardModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    AngularFontAwesomeModule,
     MatButtonModule,
     MatIconModule
   ],
