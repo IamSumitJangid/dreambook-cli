@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import 'hammerjs';
@@ -24,7 +25,10 @@ import { StudentsComponent } from './students/students.component';
 import { StudentComponent } from './student/student.component';
 import { StudentService } from './services/student.service';
 
-import { from } from 'rxjs';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
@@ -51,11 +55,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MatSelectModule,
     MatSlideToggleModule,
     MatCardModule,
+    MatProgressBarModule,
     MatNativeDateModule,
     MatDatepickerModule,
     AngularFontAwesomeModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [
     StudentService
