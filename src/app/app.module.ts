@@ -26,7 +26,6 @@ import { StudentComponent } from './student/student.component';
 import { StudentService } from './services/student.service';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
@@ -62,7 +61,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MatButtonModule,
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
   ],
   providers: [
     StudentService
